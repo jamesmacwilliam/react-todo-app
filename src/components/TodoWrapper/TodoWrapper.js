@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search'
+import Item from './Item'
 
 class TodoWrapper extends Component {
   constructor() {
@@ -15,15 +16,26 @@ class TodoWrapper extends Component {
     this.setState({ query: val })
   }
   addTodo(val) {
-    this.setState({ todos: this.state.todos.push(val) })
+    let todos = this.state.todos
+    todos.push(val)
+    this.setState({ todos: todos })
   }
   render() {
+    let todos = this.state.todos.map((todo) => {
+      return (
+        <Item
+         key={ todo }
+         name={ todo }
+       />
+      )
+    })
     return (
       <div className="todoWrapper">
         <Search
           update={ this.updateSearch }
           submit={ this.addTodo }
         />
+        { todos }
       </div>
     )
   }
