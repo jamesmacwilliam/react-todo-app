@@ -17,15 +17,15 @@ class TodoWrapper extends Component {
   }
   addTodo(val) {
     let todos = this.state.todos
-    todos.push(val)
+    todos.push({active: true, name: val })
     this.setState({ todos: todos })
   }
   render() {
-    let todos = this.state.todos.map((todo) => {
+    let todos = this.state.todos.map((todo, index) => {
       return (
         <Item
-         key={ todo }
-         name={ todo }
+         key={ index }
+         obj={ todo }
        />
       )
     })
