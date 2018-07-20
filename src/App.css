@@ -60,8 +60,53 @@
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 2px;
-  padding-bottom: 8px;
-  padding-top: 4px;
+  padding-bottom: 0px;
+  padding-top: 9px;
   border-bottom: solid 1px #555555;
   background-color: #F0FFFF;
+}
+.checkContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 22px;
+}
+.checkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkContainer .mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.checkContainer:hover input ~ .mark {
+  background-color: #ccc;
+}
+.checkContainer input:checked ~ .mark {
+  background-color: #2196F3;
+}
+.checkContainer .mark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.checkContainer input:checked ~ .mark:after {
+  display: block;
+}
+.checkContainer .mark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }

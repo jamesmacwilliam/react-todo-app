@@ -4,7 +4,14 @@ import PropTypes from 'prop-types'
 class Item extends Component {
   render() {
     return (
-      <p className='todoItem'>{ this.props.obj.name }</p>
+      <p className='todoItem'>
+        <label className="checkContainer">
+          { this.props.obj.name }
+          <input type="checkbox" />
+          <span className="mark" />
+
+        </label>
+      </p>
     )
   }
 }
