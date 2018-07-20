@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 class Item extends Component {
-  constructor(props) {
-    super(props)
-    this.handleChange = this.handleChange.bind(this)
+  handleChange = (e) => this.props.update(this.props.obj, !e.target.checked)
+
+  labelClass() {
+    if (this.props.obj.active) { return '' }
+    return 'inActive'
   }
   render() {
     return (
@@ -20,13 +22,6 @@ class Item extends Component {
         </label>
       </p>
     )
-  }
-  labelClass() {
-    if (this.props.obj.active) { return '' }
-    return 'inActive'
-  }
-  handleChange(e) {
-    this.props.update(this.props.obj, !e.target.checked)
   }
 }
 

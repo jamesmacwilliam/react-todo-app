@@ -9,19 +9,14 @@ class TodoWrapper extends Component {
       query: '',
       todos: []
     }
-    this.updateSearch = this.updateSearch.bind(this)
-    this.addTodo = this.addTodo.bind(this)
-    this.updateItemState = this.updateItemState.bind(this)
   }
-  updateSearch(val) {
-    this.setState({ query: val })
-  }
-  addTodo(val) {
+  updateSearch = (val) => this.setState({ query: val })
+  addTodo = (val) => {
     let todos = this.state.todos
     todos.push({id: (new Date()).getTime(), active: true, name: val })
     this.setState({ todos: todos })
   }
-  updateItemState(changedTodo, active) {
+  updateItemState = (changedTodo, active) => {
     let todos = this.state.todos.map((todo) => {
       if (changedTodo.id !== todo.id) { return todo }
       todo.active = active
