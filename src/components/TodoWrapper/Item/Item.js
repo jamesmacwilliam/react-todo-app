@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 class Item extends Component {
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+  }
   render() {
     return (
       <p className='todoItem'>
-        <label className="checkContainer">
+        <label className={ 'checkContainer ' + this.labelClass() }>
           { this.props.obj.name }
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onChange={ this.handleChange }
+          />
           <span className="mark" />
 
         </label>
       </p>
     )
   }
+  labelClass() {
+    if (this.props.obj.active) { return '' }
+    return 'inActive'
+  }
+  handleChange(e) {
+    this.props.update(this.props.obj, !e.target.checked)
+  }
 }
 
 Item.propTypes = {
-  obj: PropTypes.object.isRequired
+  obj: PropTypes.object.isRequired,
+  update: PropTypes.func.isRequired
 }
 
 export default Item

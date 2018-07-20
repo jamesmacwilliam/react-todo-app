@@ -74,6 +74,9 @@
   user-select: none;
   font-size: 22px;
 }
+.checkContainer.inActive {
+  text-decoration: line-through;
+}
 .checkContainer input {
   position: absolute;
   opacity: 0;
