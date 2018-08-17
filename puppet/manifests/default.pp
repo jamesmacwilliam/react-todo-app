@@ -35,18 +35,15 @@ node default {
     path => '/usr/bin'
   }
 
-  package { 'nginx': }
-
-  service { 'nginx':
-    enable     => true,
-    ensure => 'running'
+  exec { 'firewall-cmd --zone=public --add-service=http':
+    user => 'root',
+    path => '/usr/bin'
   }
 
-  file_line { 'set nginx root to react app':
-    path   => '/etc/nginx/nginx.conf',
-    match  => '^ *root',
-    line   => '        root         /srv/www/todo/build;',
-    notify => Service['nginx']
+  include 'nginx'
+
+  nginx::resource::server { 'todoapp.com':
+    www_root => '/srv/www/todo/build'
   }
 
   file { '/etc/init.d':
