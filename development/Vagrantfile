@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, path: '../puppet/install_agent.sh'
 
-  config.vm.provision :file, source: 'app', destination: '/tmp/app'
+  config.vm.provision :file, source: '../app', destination: '/tmp/app'
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = '../puppet/manifests'
