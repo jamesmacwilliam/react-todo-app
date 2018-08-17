@@ -3,11 +3,18 @@
 # dependencies
 /node_modules
 
+# development machine
+development/.vagrant/
+
 # testing
 /coverage
 
 # production
 /build
+
+# build files
+/development/app
+/deploy/app
 
 # misc
 .DS_Store

@@ -3,6 +3,7 @@
  ##  Dependencies
  - packer (https://www.packer.io)
  - terraform (https://www.terraform.io)
+ - puppet
  - an AWS account
  
  ## Deployment

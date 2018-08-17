@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# See README.md for details
+
+VAGRANTFILE_API_VERSION = '2'.freeze
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = 'centos/7'
+
+  config.vm.define 'app-server' do |puppetmaster|
+    puppetmaster.vm.hostname = 'app-server'
+
+    puppetmaster.vm.network 'private_network', ip: '172.31.0.201'
+  end
+
+  config.vm.provider :virtualbox do |p|
+    p.customize ['modifyvm', :id, '--memory', 1024]
+  end
+
+  config.vm.provision :shell, path: '../puppet/install_agent.sh'
+
+  config.vm.provision :file, source: 'app', destination: '/tmp/app'
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = '../puppet/manifests'
+    puppet.module_path = '../puppet/modules'
+  end
+end
