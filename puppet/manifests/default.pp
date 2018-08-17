@@ -35,8 +35,30 @@ node default {
     path => '/usr/bin'
   }
 
-  exec { 'firewall-cmd --zone=public --permanent --add-port=5000':
-    user => 'root',
-    path => '/usr/bin'
+  package { 'nginx': }
+
+  service { 'nginx':
+    enable     => true,
+    ensure => 'running'
+  }
+
+  file_line { 'set nginx root to react app':
+    path   => '/etc/nginx/nginx.conf',
+    match  => '^ *root',
+    line   => '        root         /srv/www/todo/build;',
+    notify => Service['nginx']
+  }
+
+  file { '/etc/init.d':
+    ensure => 'directory',
+    mode   => '0755'
+  }
+
+  file { '/etc/init.d/reactapp':
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    content => '/usr/bin/nohup /usr/bin/serve -s /srv/www/todo/build > /dev/null 2>&1 &'
   }
 }
