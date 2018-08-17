@@ -13,8 +13,7 @@ development/.vagrant/
 /build
 
 # build files
-/development/app
-/deploy/app
+/app
 
 # misc
 .DS_Store
@@ -22,6 +21,7 @@ development/.vagrant/
 .env.development.local
 .env.test.local
 .env.production.local
+package-lock*
 
 npm-debug.log*
 yarn-debug.log*
