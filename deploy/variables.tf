@@ -4,7 +4,6 @@ variable "aws_region" {
 }
 
 data "aws_availability_zones" "available" {}
-data.aws_availability_zones.available[0]
 
 variable "aws_profile" {
   default = "personal"
