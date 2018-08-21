@@ -16,6 +16,7 @@ resource "aws_route_table" "public2" {
   }
 }
 
+
 resource "aws_subnet" "public1" {
   vpc_id            = "${aws_vpc.vpc.id}"
   cidr_block        = "${var.public_subnet1_address_space}"

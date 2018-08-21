@@ -13,7 +13,7 @@ variable "public_key_path" {
   default = "~/.ssh/id_rsa.pub"
 }
 variable "network_address_space" {
-  default = "10.1.0.0/12"
+  default = "10.1.0.0/16"
 }
 variable "public_subnet1_address_space" {
   default = "10.1.0.0/24"
