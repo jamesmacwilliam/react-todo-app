@@ -42,8 +42,9 @@ node default {
 
   include 'nginx'
 
-  nginx::resource::server { 'todoapp.com':
-    www_root => '/srv/www/todo/build'
+  nginx::resource::server { 'todo':
+    server_name => ['~.*'],
+    www_root    => '/srv/www/todo/build'
   }
 
   file { '/etc/init.d':
