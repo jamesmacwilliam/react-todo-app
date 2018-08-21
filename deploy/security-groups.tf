@@ -1,6 +1,6 @@
 resource "aws_security_group" "elb-sg" {
   name        = "nginx_elb_sg"
-  vpc_id      = "${module.vpc.vpc_id}"
+  vpc_id      = "${aws_vpc.vpc.id}"
 
   #Allow HTTP from anywhere
   ingress {
@@ -21,7 +21,7 @@ resource "aws_security_group" "elb-sg" {
 
 resource "aws_security_group" "nginx-sg" {
   name        = "nginx_sg"
-  vpc_id      = "${module.vpc.vpc_id}"
+  vpc_id      = "${aws_vpc.vpc.id}"
 
   # SSH access from anywhere
   ingress {

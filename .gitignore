@@ -15,6 +15,9 @@ development/.vagrant/
 # build files
 /app
 
+# terraform init files
+/deploy/.terraform*
+
 # misc
 .DS_Store
 .env.local

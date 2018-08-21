@@ -30,13 +30,12 @@ resource "aws_subnet" "public2" {
   map_public_ip_on_launch = "true"
 }
 
-
 resource "aws_route_table_association" "public1" {
-  subnet_id      = "${aws_subnet.public1}"
+  subnet_id      = "${aws_subnet.public1.id}"
   route_table_id = "${aws_route_table.public1.id}"
 }
 
 resource "aws_route_table_association" "public2" {
-  subnet_id      = "${aws_subnet.public2}"
+  subnet_id      = "${aws_subnet.public2.id}"
   route_table_id = "${aws_route_table.public2.id}"
 }

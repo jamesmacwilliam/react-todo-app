@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "asg_app1" {
   launch_configuration      = "${aws_launch_configuration.lc_app.id}"
   load_balancers            = ["${aws_elb.elb_app.id}"]
 
-  vpc_zone_identifier = ["${data.aws_availability_zones.available[0].id}"]
+  vpc_zone_identifier = ["${data.aws_availability_zones.available.ids[0]}"]
 }
 
 resource "aws_autoscaling_group" "asg_app2" {
@@ -33,7 +33,7 @@ resource "aws_autoscaling_group" "asg_app2" {
   launch_configuration      = "${aws_launch_configuration.lc_app.id}"
   load_balancers            = ["${aws_elb.elb_app.id}"]
 
-  vpc_zone_identifier = ["${data.aws_availability_zones.available[1].id}"]
+  vpc_zone_identifier = ["${data.aws_availability_zones.available.ids[1]}"]
 }
 
 resource "aws_launch_configuration" "lc_app" {
