@@ -18,6 +18,8 @@ development/.vagrant/
 # terraform init files
 /deploy/.terraform*
 
+/deploy/*.tfstate*
+
 # misc
 .DS_Store
 .env.local

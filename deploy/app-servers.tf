@@ -4,7 +4,7 @@ resource "aws_autoscaling_group" "asg_app1" {
   }
 
   # interpolate the LC into the ASG name so it always forces an update
-  name                      = "asg-app - ${aws_launch_configuration.lc_app.name}"
+  name                      = "asg-app1 - ${aws_launch_configuration.lc_app.name}"
   max_size                  = 2
   min_size                  = 1
   wait_for_elb_capacity     = 1
@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "asg_app1" {
   launch_configuration      = "${aws_launch_configuration.lc_app.id}"
   load_balancers            = ["${aws_elb.elb_app.id}"]
 
-  vpc_zone_identifier = ["${data.aws_availability_zones.available.names[0]}"]
+  vpc_zone_identifier = ["${aws_subnet.private1.id}"]
 }
 
 resource "aws_autoscaling_group" "asg_app2" {
@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "asg_app2" {
   }
 
   # interpolate the LC into the ASG name so it always forces an update
-  name                      = "asg-app - ${aws_launch_configuration.lc_app.name}"
+  name                      = "asg-app2 - ${aws_launch_configuration.lc_app.name}"
   max_size                  = 2
   min_size                  = 1
   wait_for_elb_capacity     = 1
@@ -33,7 +33,7 @@ resource "aws_autoscaling_group" "asg_app2" {
   launch_configuration      = "${aws_launch_configuration.lc_app.id}"
   load_balancers            = ["${aws_elb.elb_app.id}"]
 
-  vpc_zone_identifier = ["${data.aws_availability_zones.available.names[1]}"]
+  vpc_zone_identifier = ["${aws_subnet.private2.id}"]
 }
 
 resource "aws_launch_configuration" "lc_app" {

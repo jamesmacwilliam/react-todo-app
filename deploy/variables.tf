@@ -23,10 +23,10 @@ variable "public_subnet2_address_space" {
 }
 
 variable "private_subnet1_address_space" {
-  default = "10.1.0.0/24"
+  default = "10.1.2.0/24"
 }
 variable "private_subnet2_address_space" {
-  default = "10.1.1.0/24"
+  default = "10.1.3.0/24"
 }
 
 /* Packer baked AMI */
