@@ -12,6 +12,10 @@ development/.vagrant/
 # production
 /build
 
+# build artifacts
+build.log
+/deploy/terraform.tfvars
+
 # build files
 /app
 

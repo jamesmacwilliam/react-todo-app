@@ -20,7 +20,7 @@
       },
       "instance_type": "t2.micro",
       "ssh_username": "{{user `ssh_username`}}",
-      "ami_name": "react-app",
+      "ami_name": "react-app {{timestamp}}",
       "associate_public_ip_address": true
     }
   ],

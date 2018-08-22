@@ -13,7 +13,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev": "./prepare.sh && cd development && vagrant up --provision",
-    "pack": "./prepare.sh && packer build deploy/packer.json"
+    "prod": "./prepare.sh && ./pack.sh && cd deploy && terraform apply"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
