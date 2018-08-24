@@ -47,11 +47,6 @@ node default {
     www_root    => '/srv/www/todo/build'
   }
 
-  file { '/etc/init.d':
-    ensure => 'directory',
-    mode   => '0755'
-  }
-
   file { '/etc/init.d/reactapp':
     ensure  => 'present',
     owner   => 'root',
