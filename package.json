@@ -14,7 +14,7 @@
     "eject": "react-scripts eject",
     "dev_aws": "./prepare.sh && cd development && vagrant up --provision",
     "aws": "./prepare.sh && ./pack.sh && cd aws && terraform apply",
-    "docker": "./prepare.sh && ./container.sh"
+    "dev_aks": "./prepare.sh && ./container.sh"
   },
   "devDependencies": {
     "eslint": "^5.1.0",

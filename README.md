@@ -8,10 +8,10 @@
 
  ## Development
  - `yarn && yarn start` to view dev server
- - `yarn run dev` to spin up dev server
- - add `172.31.0.201 todoapp.com` to `/etc/hosts`
- - visit http://todoapp.com to see centos machine with your app running on it
+ - `yarn run dev_aws` to spin up dev server matching the aws ami that would be generated
+ - visit `http://172.31.0.201` to see centos machine with your app running on it
+ - `yarn run dev_aks` to spin up a local kubernetes cluster to match what will be deployed to AKS
  
- ## Deployment
-  - build a new AMI via `yarn run pack`
-  - deploy to an AWS auto scaling group via `# coming soon, see network architecture proposal`
+ ## AWS Deployment
+  - setup a new aws account and add credentials to `~/.aws/credentials` under the appropriate profile (`[personal]`) is the default
+  - build a new AMI and deploy to aws via `yarn run aws`
