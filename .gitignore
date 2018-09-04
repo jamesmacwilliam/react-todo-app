@@ -14,15 +14,15 @@ development/.vagrant/
 
 # build artifacts
 build.log
-/deploy/terraform.tfvars
+/aws/terraform.tfvars
 
 # build files
 /app
 
 # terraform init files
-/deploy/.terraform*
+/aws/.terraform*
 
-/deploy/*.tfstate*
+/aws/*.tfstate*
 
 # misc
 .DS_Store
