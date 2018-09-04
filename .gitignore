@@ -20,9 +20,8 @@ build.log
 /app
 
 # terraform init files
-/aws/.terraform*
-
-/aws/*.tfstate*
+/**/.terraform*
+/**/*.tfstate*
 
 # misc
 .DS_Store
