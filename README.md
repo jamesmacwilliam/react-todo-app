@@ -6,10 +6,15 @@
  - puppet
  - an AWS account
 
- ## Development
+ ## AWS Development
  - `yarn && yarn start` to view dev server
  - `yarn run dev_aws` to spin up dev server matching the aws ami that would be generated
  - visit `http://172.31.0.201` to see centos machine with your app running on it
+
+ ## AKS Development
+ - install docker for mac
+ - enable kubernetes via: preferences -> kubernetes -> `Enable Kubernetes` (default orchestrator `Kubernetes`) -> Apply
+ - follow this tutorial to setup kubernetes dashboard: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
  - `yarn run dev_aks` to spin up a local kubernetes cluster to match what will be deployed to AKS
  
  ## AWS Deployment
