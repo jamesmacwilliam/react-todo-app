@@ -1,6 +1,6 @@
 resource "kubernetes_replication_controller" "todo" {
 	metadata {
-		name = "todo"
+		name = "todo-controller"
 
 		labels {
 			App = "todo"
@@ -15,7 +15,7 @@ resource "kubernetes_replication_controller" "todo" {
 
 		template {
 			container {
-				image = "test"
+				image = "yeasy/simple-web:latest"
 				name  = "todo"
 
 				port {

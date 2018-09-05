@@ -1,6 +1,6 @@
 resource "kubernetes_service" "todo_lb" {
 	metadata {
-		name = "todo"
+		name = "todo-lb"
 	}
 
 	spec {
@@ -9,8 +9,8 @@ resource "kubernetes_service" "todo_lb" {
 		}
 
 		port {
-			port = 80
-			target_port = 8081
+			port = 8081
+			target_port = 80
 		}
 
 		type = "LoadBalancer"
