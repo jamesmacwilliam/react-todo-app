@@ -15,7 +15,8 @@ resource "kubernetes_replication_controller" "todo" {
 
 		template {
 			container {
-				image = "yeasy/simple-web:latest"
+				image = "test"
+				image_pull_policy = "Never"
 				name  = "todo"
 
 				port {
