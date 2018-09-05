@@ -15,7 +15,9 @@
  - install docker for mac
  - enable kubernetes via: preferences -> kubernetes -> `Enable Kubernetes` (default orchestrator `Kubernetes`) -> Apply
  - follow this tutorial to setup kubernetes dashboard: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
- - `yarn run dev_aks` to spin up a local kubernetes cluster to match what will be deployed to AKS
+ - run `kubectl proxy` to start kubernetes dashboard on port 8001
+ - note: if you set your kubernetes dashboard up correctly, you should see the dashboard at: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+ - `yarn run dev_aks` to build a local docker image, spin up a local kubernetes service + replication controller, and visit the load balancer service (matching what will be deployed to AKS)
  
  ## AWS Deployment
   - setup a new aws account and add credentials to `~/.aws/credentials` under the appropriate profile (`[personal]`) is the default
