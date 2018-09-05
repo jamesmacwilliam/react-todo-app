@@ -9,7 +9,7 @@ resource "kubernetes_service" "todo_lb" {
 		}
 
 		port {
-			port = 8081
+			port = 8080
 			target_port = 80
 		}
 
