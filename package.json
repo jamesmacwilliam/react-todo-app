@@ -13,8 +13,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev_aws": "./prepare.sh && cd dev_aws  && vagrant up --provision",
-    "aws": "./prepare.sh && ./pack.sh && cd aws && terraform apply",
-    "dev_aks": "./prepare.sh && ./container.sh"
+    "aws": "./prepare.sh && ./pack.sh && cd aws && terraform apply -var-file=terraform.tvars",
+    "dev_aks": "./prepare.sh && ./container.sh",
+    "aks": "./prepare.sh && ./aks.sh"
   },
   "devDependencies": {
     "eslint": "^5.1.0",

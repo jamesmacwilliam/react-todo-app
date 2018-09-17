@@ -14,7 +14,7 @@ dev_aws/.vagrant/
 
 # build artifacts
 build.log
-/aws/terraform.tfvars
+/**/*.tfvars
 
 # build files
 /app

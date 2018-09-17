@@ -18,6 +18,10 @@
  - run `kubectl proxy` to start kubernetes dashboard on port 8001
  - note: if you set your kubernetes dashboard up correctly, you should see the dashboard at: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
  - `yarn run dev_aks` to build a local docker image, spin up a local kubernetes service + replication controller, and visit the load balancer service (matching what will be deployed to AKS)
+
+ ## AKS Deployment
+ - install kubectl (should be installed if you enabled kubernetes in the development workflow, otherwise: https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+ - Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
  
  ## AWS Deployment
   - setup a new aws account and add credentials to `~/.aws/credentials` under the appropriate profile (`[personal]`) is the default
