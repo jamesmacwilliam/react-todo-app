@@ -15,7 +15,8 @@
     "dev_aws": "./prepare.sh && cd dev_aws  && vagrant up --provision",
     "aws": "./prepare.sh && ./pack.sh && cd aws && terraform apply -var-file=terraform.tvars",
     "dev_aks": "./prepare.sh && ./container.sh",
-    "aks": "./prepare.sh && ./aks.sh"
+    "aks": "./prepare.sh && ./aks.sh",
+    "aks_desktop": "./kubernetes_desktop.sh"
   },
   "devDependencies": {
     "eslint": "^5.1.0",

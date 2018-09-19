@@ -1,6 +1,3 @@
-provider "azurerm" {
-}
-
 resource "azurerm_resource_group" "todo_group" {
   name = "todo-g"
   location = "${var.location}"
@@ -32,11 +29,4 @@ resource "azurerm_kubernetes_cluster" "todo_cluster" {
     client_id = "${var.client_id}"
     client_secret = "${var.client_secret}"
   }
-}
-
-output "id" {
-  value = "${azurerm_kubernetes_cluster.todo_cluster.id}"
-}
-output "host" {
-  value = "${azurerm_kubernetes_cluster.todo_cluster.kube_config.0.host}"
 }

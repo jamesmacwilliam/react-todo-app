@@ -22,6 +22,11 @@
  ## AKS Deployment
  - install kubectl (should be installed if you enabled kubernetes in the development workflow, otherwise: https://kubernetes.io/docs/tasks/tools/install-kubectl/)
  - Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+ - a Docker Hub account https://hub.docker.com
+ - an Azure account https://portal.azure.com
+ - copy `aks/terraform.tfvars.example > aks/terraform.tfvars` and fill in the variables
+ - `yarn run aks` (will login to azure via `az login` and to docker hub via `docker login`)
+ - visit your site at the given `site_address` or view the kubernetes dashboard via `yarn run aks_desktop`
  
  ## AWS Deployment
   - setup a new aws account and add credentials to `~/.aws/credentials` under the appropriate profile (`[personal]`) is the default
