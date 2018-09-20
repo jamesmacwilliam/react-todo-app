@@ -1,0 +1,10 @@
+docker_username = ""
+
+########################## prod aks only ###############################
+
+client_id = ""
+client_secret = ""
+resource_group_name = "todo-g"
+cluster_name = "todo-k"
+
+########################################################################

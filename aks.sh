@@ -1,15 +1,22 @@
-docker_username=$(grep docker_username aks/terraform.tfvars | cut -d'"' -f2)
-cd aks_container
-echo '====================== azzure login ============================'
-az login
-terraform apply -auto-approve
-terraform output kube_config > ~/.kube/aksconfig
-export KUBECONFIG=~/.kube/aksconfig
-echo "run: `kubectl get pods` to see your pods on azure"
-cd ..
-docker build -t $docker_username/todo -f Dockerfile .
+# get docker_username from vars file to login to docker
+docker_username=$(grep docker_username docker.tfvars | cut -d'"' -f2)
+
+# get checksum of app directory to determine if we need to rebuild docker image
+dir=app
+dirsum=0
+for sum  in $(find ${dir} -type f | xargs cksum | awk '{print $1}')
+do
+  dirsum=$(( ${sum} + ${dirsum} ))
+done
+inc=$(date)
+
 echo '====================== docker hub login ============================'
 docker login --username $docker_username
-docker push $docker_username/todo
-cd aks
-terraform apply --auto-approve
+
+echo '====================== azzure login ============================'
+az login
+
+# build and push image + build container + build cluster
+cd aks_final
+terraform init
+terraform apply -auto-approve -var-file=../docker.tfvars -var "cksum=${dirsum}" -var "inc=${inc}"
