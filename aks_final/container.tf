@@ -39,4 +39,6 @@ resource "null_resource" "kubectl_setup" {
   provisioner "local-exec" {
     command = "az aks get-credentials --resource-group ${var.resource_group_name} --name ${var.cluster_name}"
   }
+
+	depends_on = ["azurerm_kubernetes_cluster.todo_cluster"]
 }
