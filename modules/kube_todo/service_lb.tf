@@ -5,7 +5,7 @@ resource "kubernetes_service" "todo_lb" {
 
 	spec {
 		selector {
-			App = "todo"
+			App = "${kubernetes_replication_controller.todo.metadata.0.labels.App}"
 		}
 
 		port {

@@ -48,4 +48,6 @@ module "kube_todo" {
 
   cksum = "${var.cksum}"
   docker_username = "${var.docker_username}"
+
+  input_dependency = "${null_resource.kubectl_setup.id}"
 }
