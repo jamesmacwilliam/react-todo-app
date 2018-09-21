@@ -17,6 +17,6 @@ echo '====================== azzure login ============================'
 az login
 
 # build and push image + build container + build cluster
-cd aks_final
+cd aks
 terraform init
 terraform apply -auto-approve -var-file=../docker.tfvars -var "cksum=${dirsum}" -var "inc=${inc}"
