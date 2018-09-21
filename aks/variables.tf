@@ -1,1 +1,0 @@
-variable "docker_username" {}

@@ -1,5 +1,0 @@
-provider "azurerm" {
-}
-
-#provider "kubernetes" {
-#}
