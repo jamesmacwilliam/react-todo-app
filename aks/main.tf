@@ -40,5 +40,12 @@ resource "null_resource" "kubectl_setup" {
     command = "az aks get-credentials --resource-group ${var.resource_group_name} --name ${var.cluster_name}"
   }
 
-	depends_on = ["azurerm_kubernetes_cluster.todo_cluster"]
+  depends_on = ["azurerm_kubernetes_cluster.todo_cluster"]
+}
+
+module "kube_todo" {
+  source = "../modules/kube_todo"
+
+  cksum = "${var.cksum}"
+  docker_username = "${var.docker_username}"
 }

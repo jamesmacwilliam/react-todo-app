@@ -19,4 +19,4 @@ az login
 # build and push image + build container + build cluster
 cd aks
 terraform init
-terraform apply -auto-approve -var-file=../docker.tfvars -var "cksum=${dirsum}" -var "inc=${inc}"
+terraform apply -auto-approve -var-file=../docker.tfvars -var "cksum=${dirsum}" -var "inc=${inc}" || terraform apply -auto-approve -var-file=../docker.tfvars -var "cksum=${dirsum}" -var "inc=${inc}"

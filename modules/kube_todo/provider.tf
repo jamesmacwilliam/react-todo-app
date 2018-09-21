@@ -1,5 +1,2 @@
-provider "azurerm" {
-}
-
 provider "kubernetes" {
 }
