@@ -18,12 +18,9 @@ variable "client_id" {}
 
 variable "client_secret" {}
 
-variable "docker_username" {}
+variable "docker_un" {}
+variable "docker_pw" {}
 
 variable "resource_group_name" {}
 
 variable "cluster_name" {}
-
-variable "cksum" {}
-
-variable "inc" {}

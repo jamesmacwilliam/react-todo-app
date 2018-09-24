@@ -7,6 +7,8 @@ resource "kubernetes_replication_controller" "todo" {
 		}
 	}
 
+	depends_on = ["null_resource.push"]
+
 	spec {
 		replicas = 2
 		selector {
@@ -15,7 +17,7 @@ resource "kubernetes_replication_controller" "todo" {
 
 		template {
 			container {
-				image = "${var.docker_username}/todo"
+				image = "${var.docker_un}/todo"
 				name  = "todo"
 
 				port {

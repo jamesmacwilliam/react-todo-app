@@ -3,6 +3,8 @@ resource "kubernetes_service" "todo_lb" {
 		name = "todo-lb"
 	}
 
+	depends_on = ["null_resource.push"]
+
 	spec {
 		selector {
 			App = "${kubernetes_replication_controller.todo.metadata.0.labels.App}"

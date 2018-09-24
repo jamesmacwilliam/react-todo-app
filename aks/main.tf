@@ -1,6 +1,18 @@
+resource "null_resource" "login" {
+  triggers {
+    cluster_id = "${azurerm_kubernetes_cluster.todo_cluster.id}"
+  }
+
+  provisioner "local-exec" {
+    command = "az login"
+  }
+}
+
 resource "azurerm_resource_group" "todo_group" {
   name = "todo-g"
   location = "${var.location}"
+
+  depends_on = ["null_resource.login"]
 }
 
 resource "azurerm_kubernetes_cluster" "todo_cluster" {
@@ -33,7 +45,7 @@ resource "azurerm_kubernetes_cluster" "todo_cluster" {
 
 resource "null_resource" "kubectl_setup" {
   triggers {
-    inc = "${var.inc}"
+    cluster_id = "${azurerm_kubernetes_cluster.todo_cluster.id}"
   }
 
   provisioner "local-exec" {
@@ -46,8 +58,9 @@ resource "null_resource" "kubectl_setup" {
 module "kube_todo" {
   source = "../modules/kube_todo"
 
-  cksum = "${var.cksum}"
-  docker_username = "${var.docker_username}"
+  docker_un = "${var.docker_un}"
+  docker_pw = "${var.docker_pw}"
+  kube_context = "${var.cluster_name}"
 
   input_dependency = "${null_resource.kubectl_setup.id}"
 }
